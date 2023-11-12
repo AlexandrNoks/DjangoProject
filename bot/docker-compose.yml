@@ -1,0 +1,19 @@
+version: "3.11"
+
+
+
+services:
+  telegram-bot:
+    container_name: mybot
+    restart: always
+    build:
+      dockerfile: Dockerfile
+    environment:
+      - YOUR_TOKEN=BOT_TOKEN
+      - ip=localhost
+      - PGUSER=postgres
+      - PGPASSWORD=1990
+      - DATABASE=gino
+    command: "python bot.py"
+    ports:
+      - "5432:5432"
